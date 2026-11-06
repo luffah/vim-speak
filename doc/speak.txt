@@ -1,0 +1,80 @@
+*speak.vim*    Vim lib for using screen reader (speech-dispatcher)
+                                                                       *speak*
+License:     GPL (see http://www.gnu.org/licenses/gpl.txt)
+Author(s):   luffah (luffah AT runbox com)
+Revision:    2
+Last Change: 2026-11-05
+
+Send text (line, word, command output...) to speech-dispatcher (spd-say).
+Provides Speak* commands and an optional speech-reader keybinding layer.
+Depends on : selection, keybindings
+
+To activate the screen reader, add in your .vimrc : >
+   call speak#enable(0)   " Speak* commands only
+   call speak#enable(1)   " Speak* commands and keybinding layer
+<
+==============================================================================
+CONTENTS                                                      *speak-contents*
+
+1. Functions                                                 |speak-functions|
+2. Globals                                                     |speak-globals|
+
+==============================================================================
+FUNCTIONS                                                    *speak-functions*
+
+speak#enable(bool do_enable_keymap)                          *speak#enable()*
+    Active speak functionnality
+    if has('win32')
+
+speak#(text [, options, speak_lang])                               *speak#()*
+    speak text with spd-say
+
+WordBefore(line,col,endpattern,finalpattern)                   *WordBefore()*
+    return the word before cursor
+
+WordAfter(line,col,endpattern,finalpattern)                     *WordAfter()*
+    return the word following cursor
+
+speak#disable()                                             *speak#disable()*
+    Disable speak functionnality
+
+
+==============================================================================
+GLOBALS                                                        *speak-globals*
+
+*g:speak_layer_key*
+    Define the key to hit to activate speak keybindings.
+    Default <C-s> (Ctrl + S).
+
+*g:speak_leader_key*
+    Define the leader key which is the first key in combination
+    Default x . 
+
+*g:speak_global_keymap*
+    Define the keymap not prefixed by leader key (active once speak is enabled)
+    Default {}. 
+
+*g:speak_leader_keymap*
+    Define the keymap prefixed by leader key (active once speak is enabled)
+    Default {
+          'k' : ':SpeakClear<Cr>',
+          'a' : ':SpeakLine<Cr><Down>',
+          'b' : ':SpeakLine<Cr>',
+          'n' : ':SpeakMatchesNumber<Cr>',
+          'f' : ':SpeakFileName<Cr>',
+          'p' : ':SpeakYanked<Cr>',
+          'W' : ':SpeakWORDPunc<Cr>',
+          'w' : ':SpeakWORD<Cr>',
+          }
+
+*g:speak_layer_keymap*
+    Define the keymap usable whe the speak layer is enable
+    for more, see the content of the variable or call keybindings#PrintLayer('~Speak')
+
+*g:speak_lang*
+    speech dispatcher lang
+
+*g:speak_voice_type*
+    speech dispatcher voice type
+
+vim:tw=78:ts=8:ft=help:norl:

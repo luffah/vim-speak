@@ -1,0 +1,17 @@
+WordAfter()	speak.txt	/*WordAfter()*
+WordBefore()	speak.txt	/*WordBefore()*
+g:speak_global_keymap	speak.txt	/*g:speak_global_keymap*
+g:speak_lang	speak.txt	/*g:speak_lang*
+g:speak_layer_key	speak.txt	/*g:speak_layer_key*
+g:speak_layer_keymap	speak.txt	/*g:speak_layer_keymap*
+g:speak_leader_key	speak.txt	/*g:speak_leader_key*
+g:speak_leader_keymap	speak.txt	/*g:speak_leader_keymap*
+g:speak_voice_type	speak.txt	/*g:speak_voice_type*
+speak	speak.txt	/*speak*
+speak#()	speak.txt	/*speak#()*
+speak#disable()	speak.txt	/*speak#disable()*
+speak#enable()	speak.txt	/*speak#enable()*
+speak-contents	speak.txt	/*speak-contents*
+speak-functions	speak.txt	/*speak-functions*
+speak-globals	speak.txt	/*speak-globals*
+speak.vim	speak.txt	/*speak.vim*
